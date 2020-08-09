@@ -19,6 +19,7 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import Photos from "./app/Photos";
 import Map from "./app/Map";
 import GastronomyList from "./app/GastronomyList";
+import { ScrollView } from "react-native-gesture-handler";
 
 class HamburgerIcon extends Component {
   toggleDrawer = () => {
@@ -88,6 +89,16 @@ class Gastronomy_Screen extends Component {
   }
 }
 
+class Events_Screen extends Component {
+  static navigationOptions = {
+    title: "Events"
+  };
+
+  render() {
+    return <View style={styles.MainContainer}></View>;
+  }
+}
+
 class Student_Screen extends Component {
   static navigationOptions = {
     title: "Student"
@@ -136,6 +147,9 @@ export const Tab_1 = createMaterialTopTabNavigator(
     },
     Third: {
       screen: Gastronomy_Screen
+    },
+    Forth: {
+      screen: Events_Screen
     }
   },
   {
