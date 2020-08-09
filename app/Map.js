@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const initialRegion = {
   latitude: 41.8962667,
@@ -22,8 +23,7 @@ export default class Map extends Component {
       markers: [
         ...this.state.markers,
         {
-          coordinate: e.nativeEvent.coordinate,
-          cost: "$${getRandomInt(50, 300)}"
+          coordinate: e.nativeEvent.coordinate
         }
       ]
     });
@@ -48,3 +48,17 @@ const styles = StyleSheet.create({
     height: "100%"
   }
 });
+
+/*<MapView style={styles.map} initialRegion={initialRegion}>
+          {renderRandomMarkers(2)}
+        </MapView>
+        <Callout>
+          <View style={styles.calloutView}>
+            <TextInput
+              style={styles.calloutSearch}
+              placeholder={"New city"}
+              onchangeText={this.hadleLocationInput}
+            />
+            <Button onPress={this.gotoNextActivity} title="New" />
+          </View>
+        </Callout>*/

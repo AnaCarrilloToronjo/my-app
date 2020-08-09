@@ -12,34 +12,13 @@ import {
 } from "react-native";
 
 import { createAppContainer } from "react-navigation";
-
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
-import MapView, { Marker, Callout } from "react-native-maps";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import Photos from "./app/Photos";
-
-const initialRegion = {
-  latitude: 41.8962667,
-  longitude: 11.3340056,
-  latitudeDelta: 40,
-  longitudeDelta: 40
-};
-
-function renderRandomMarkers(n) {
-  const { latitude, longitude, latitudeDelta, longitudeDelta } = initialRegion;
-  return new Array(n).fill().map((x, i) => (
-    <Marker
-      key={i}
-      coordinate={{
-        latitude: latitude + (Math.random() - 0.5) * latitudeDelta,
-        longitude: longitude + (Math.random() - 0.5) * longitudeDelta
-      }}
-    />
-  ));
-}
+import Map from "./app/Map";
+import GastronomyList from "./app/GastronomyList";
 
 class HamburgerIcon extends Component {
   toggleDrawer = () => {
@@ -75,19 +54,7 @@ class Home_Screen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MapView style={styles.map} initialRegion={initialRegion}>
-          {renderRandomMarkers(2)}
-        </MapView>
-        <Callout>
-          <View style={styles.calloutView}>
-            <TextInput
-              style={styles.calloutSearch}
-              placeholder={"New city"}
-              onchangeText={this.hadleLocationInput}
-            />
-            <Button onPress={this.gotoNextActivity} title="New" />
-          </View>
-        </Callout>
+        <Map style={styles.map}></Map>
       </View>
     );
   }
@@ -113,7 +80,11 @@ class Gastronomy_Screen extends Component {
   };
 
   render() {
-    return <View style={styles.MainContainer}></View>;
+    return (
+      <View style={styles.MainContainer}>
+        <GastronomyList></GastronomyList>
+      </View>
+    );
   }
 }
 
@@ -288,20 +259,5 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%"
-  },
-  calloutView: {
-    flexDirection: "row",
-    backgroundColor: "rgba(255, 255, 255, 0.9)",
-    borderRadius: 10,
-    marginLeft: "10%",
-    marginRight: "10%",
-    marginTop: 20,
-    flex: 1
-  },
-  calloutSearch: {
-    borderColor: "transparent",
-    width: 300, //Dimensions.get("window").height,
-    height: 40,
-    borderWidth: 0.0
   }
 });
