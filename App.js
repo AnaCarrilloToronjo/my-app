@@ -19,7 +19,8 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import Photos from "./app/Photos";
 import Map from "./app/Map";
 import GastronomyList from "./app/GastronomyList";
-import { ScrollView } from "react-native-gesture-handler";
+
+import Restaurant from "./app/Restaurants/Restaurant";
 
 class HamburgerIcon extends Component {
   toggleDrawer = () => {
@@ -83,7 +84,7 @@ class Gastronomy_Screen extends Component {
   render() {
     return (
       <View style={styles.MainContainer}>
-        <GastronomyList></GastronomyList>
+        <GastronomyList />
       </View>
     );
   }
@@ -95,7 +96,11 @@ class Events_Screen extends Component {
   };
 
   render() {
-    return <View style={styles.MainContainer}></View>;
+    return (
+      <View style={styles.MainContainer}>
+        <Restaurant></Restaurant>
+      </View>
+    );
   }
 }
 

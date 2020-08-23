@@ -50,7 +50,7 @@ function Item({ item }) {
       <View style={{ alignItems: "flex-start", flex: 1, marginLeft: 20 }}>
         <Text style={{ fontWeight: "bold", fontSize: 20 }}>{item.name}</Text>
         <Text>{item.position}</Text>
-        <StarPuntuation></StarPuntuation>
+        <StarPuntuation />
       </View>
       <TouchableOpacity
         style={{
@@ -59,8 +59,9 @@ function Item({ item }) {
           justifyContent: "center",
           alignItems: "center"
         }}
+        //onPress={() => this.props.navigation.navigate("Friends")}
       >
-        <Text style={{ color: "green" }}>View</Text>
+        <Text style={{ color: "green" }}>Details</Text>
       </TouchableOpacity>
     </View>
   );
@@ -98,6 +99,7 @@ export default class GastronomyList extends Component {
       ]
     };
   }
+
   render() {
     return (
       <View style={styles.container}>

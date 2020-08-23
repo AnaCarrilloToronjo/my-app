@@ -1,21 +1,6 @@
 import React, { Component } from "react";
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Image,
-  Alert,
-  ScrollView,
-  FlatList,
-  TouchableWithoutFeedback,
-  Dimensions,
-  Modal,
-  Header
-} from "react-native";
+import { AppRegistry, StyleSheet, View, Dimensions } from "react-native";
 
-import ScrollableTabView from "react-native-scrollable-tab-view";
 import Photos from "./app/Photos";
 
 export default class ImageGallery extends Component {
